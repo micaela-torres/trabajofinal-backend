@@ -1,0 +1,13 @@
+auth
+JWT_PRIVATE_KEY = "mariposa";
+COOKIE_KEY = "micaela-torres";
+
+basededatos
+MONGODB_CNX_STR = "mongodb://127.0.0.1:27017/symart"
+MONGODB_CNX_STR=mongodb+srv://torresmicaela2111:ezS9axKn5rNoKhFM@symart.qz6ij3a.mongodb.net/ecomerce?retryWrites=true&w=majority
+username= torresmicaela2111
+password= ezS9axKn5rNoKhFM
+
+git
+CLIENTID_GIT ='Iv1.3da744d0448f60e8'
+CLIENTSCR_GIT = "37fe03a13bcf096201bb0084ec76e63125111e2a";

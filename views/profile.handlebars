@@ -1,0 +1,56 @@
+<header>
+  <nav class="nav-container">
+    <ul class="nav-list" id="lista">
+      <li class="nav-item"><a href="/products?limit=10&page=1" id="cartref"><img
+            src="../public/img/logo-color.png"
+            alt="logo"
+            class="logo-image"
+            id="logo"
+          /></a></li>
+      <li class="nav-item btn"><a
+          href="/products?limit=10&page=1"
+          id="back-to-products"
+        ><i class="fa-solid fa-backward"></i></a>Volver</li>
+    </ul>
+  </nav>
+</header>
+
+<div class="form_main">
+  <form action="submit" id="formphoto"><label
+      for="image-upload"
+      class="profile-image-wrapper"
+    >
+      <img class="inputContainer" id="profile-image" src="{{profilePhoto}}" alt="Perfil de Usuario" />
+      <i class="fas fa-camera"></i>
+    </label>
+    <input
+      class="{{uid}}"
+      type="file"
+      id="image-upload"
+      accept="image/*"
+      style="display: none;"
+      multiple="false"
+    /></form>
+  <div class="profile-info">
+    <div class="info-row inputContainer ">
+      <span>{{fullname}}</span>
+    </div>
+    <div class="info-left">
+      <div class="inputContainer">
+        <span>Email: {{email}}</span>
+      </div>
+      <div class="inputContainer">
+        <span>Age: {{age}}</span>
+      </div>
+      <div class="inputContainer">
+        <span>Role: {{role}}</span>
+      </div>
+      <div class="inputContainer">
+        <span>Last Connection: {{lastconnection}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="../public/js/profile.js" type="application/javascript"></script>

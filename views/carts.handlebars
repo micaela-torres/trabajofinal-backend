@@ -1,0 +1,50 @@
+<header>
+  <nav class="nav-container">
+    <ul class="nav-list" id="lista">
+      <li class="nav-item"><a href="/carts/{{cid}}" id="cartref"><img
+            src="../public/img/logo-color.png"
+            alt="logo"
+            class="logo-image"
+            id="logo"
+          /></a></li>
+      <li class="nav-item btn"><a
+          href="/products?limit=10&page=1"
+          id="back-to-products"
+        ><i class="fa-solid fa-backward"></i></a>Volver</li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2 id="cart-heading">{{Head}}</h2>
+
+  {{#if listExist}}
+    <h4 id="ordertitle">My Order</h4>
+    <section id="card-info">
+      {{#each list}}
+        <div class="card" id="cart-item-{{this.product.code}}">
+          <h3 cclass="card-info">{{this.product.title}}</h3>
+          <p class="card-info">{{this.product.description}}</p>
+          <ul class="text-body">
+            <p class="text-body">Code: {{this.product.code}}</p>
+            <p class="text-body">Description: {{this.product.description}}</p>
+            <p class="text-body">Price: ${{this.product.price}}</p>
+            <p class="text-body">Quantity: {{this.quantity}}</p>
+          </ul>
+           <button class="card-button"
+                type="button"
+                onclick="delProductInCartShop(document.getElementById('cartref').href,this.dataset.productid)"
+                data-productid={{this.product.id}}
+              />Remove
+            Item</button>
+        </div>
+      {{/each}}
+    </section>
+    <button id="pay-button" onclick="payOrder(document.getElementById('cartref').href)">Pay My Order</button>
+  {{else}}
+    <p class="">No Products yet</p>
+  {{/if}}
+</main>
+
+<script src="/public/js/removeprod.js"></script>
+<script src="/public/js/payorder.js"></script>

@@ -1,0 +1,118 @@
+<header>
+  <nav class="nav-container">
+    <ul class="nav-list" id="lista">
+      <li class="nav-item nav-logo"><a href="http://localhost:8080/products?limit=10&page=1"><img
+            src="../public/img/logo-color.png"
+            alt="logo"
+            class="logo-image"
+            id="logo"
+            width="150px"
+          /></a></li>
+      <li class="nav-item"><a href="http://localhost:8080/products?limit=10&page=1&category=Algabo">Algabo</a></li>
+      <li class="nav-item"><a href="http://localhost:8080/products?limit=10&page=1&category=Iberia">Iberia</a></li>
+      <li class="nav-item"><a href="http://localhost:8080/products?limit=10&page=1&category=Otros">Otros</a></li>
+      <!-- ROL ADMIN -->
+      {{#if role}}
+       <li class="nav-item btn"><a href="/newproducts" class="add-btn" id="addref"><i class="fa-sharp fa-solid fa-file"></i></a></li>
+      {{/if}}
+      <!-- CARRITO -->
+      <li class="nav-item btn"><a href="/carts/{{this.cart}}" class="cart-btn" id="cartref" data-tippy-content="Cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+      <!-- MENU USUARIO -->
+      <li class="nav-item btn"><a href="#" class="profile-btn" id="profile"><i class="fa-solid fa-user"></i></a>
+      <ul class="dropdown-menu" id="profileMenu">
+        <li><a href="/profile/{{uid}}" id="myprofile">Profile</a></li>
+        <li><a href="/documents/{{uid}}">Documents</a></li>
+        {{#if superrole}}
+        <li><a href="/users">Users Manager</a></li>
+        {{/if}}
+      </ul></li>
+      <!-- CERRAR -->
+      <li class="nav-item btn"><a href="#" class="logout-btn" id="logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+    </ul>
+  </nav>
+</header>
+
+{{#if listExist}}
+  <div class="container">
+      {{#each list.payload}}
+              <div class="card">
+                <div class="card-info">
+                  <div>
+                    <img class="card-img" src="{{this.thumbnail}}" alt="no photo">
+                  </div>
+                  <h2 class="text-title">{{this.title}}</h2>
+                  <p class="text-body">Descripción: {{this.description}}</p>
+                  <p class="text-body">Categoría: {{this.category}}</p>
+                  <p class="text-body">Codigo:{{this.code}}</p>
+                  <div class="card-footer">
+                    <span class="text-title">
+                      <p>Precio: ${{this.price}}</p>
+                    </span>
+                    <span class="text-body">
+                      <p>Stock: {{this.stock}}</p>
+                    </span>
+                  </div>
+                  <div class="card-footer">
+                    <input type="number" min="1" max="{{this.stock}}" value="1" id="quantity-{{this.code}}">
+                    <button class=" card-button" type="button"
+                      onclick="addProductQuantityToCart(document.getElementById('cartref').href,this.dataset.productid,document.getElementById('quantity-{{this.code}}').value)"
+                      data-productid={{this.id}} /><svg class="svg-icon" viewBox="0 0 20 20">
+                      <path
+                        d="M17.72,5.011H8.026c-0.271,0-0.49,0.219-0.49,0.489c0,0.271,0.219,0.489,0.49,0.489h8.962l-1.979,4.773H6.763L4.935,5.343C4.926,5.316,4.897,5.309,4.884,5.286c-0.011-0.024,0-0.051-0.017-0.074C4.833,5.166,4.025,4.081,2.33,3.908C2.068,3.883,1.822,4.075,1.795,4.344C1.767,4.612,1.962,4.853,2.231,4.88c1.143,0.118,1.703,0.738,1.808,0.866l1.91,5.661c0.066,0.199,0.252,0.333,0.463,0.333h8.924c0.116,0,0.22-0.053,0.308-0.128c0.027-0.023,0.042-0.048,0.063-0.076c0.026-0.034,0.063-0.058,0.08-0.099l2.384-5.75c0.062-0.151,0.046-0.323-0.045-0.458C18.036,5.092,17.883,5.011,17.72,5.011z">
+                      </path>
+                      <path
+                        d="M8.251,12.386c-1.023,0-1.856,0.834-1.856,1.856s0.833,1.853,1.856,1.853c1.021,0,1.853-0.83,1.853-1.853S9.273,12.386,8.251,12.386z M8.251,15.116c-0.484,0-0.877-0.393-0.877-0.874c0-0.484,0.394-0.878,0.877-0.878c0.482,0,0.875,0.394,0.875,0.878C9.126,14.724,8.733,15.116,8.251,15.116z">
+                      </path>
+                      <path
+                        d="M13.972,12.386c-1.022,0-1.855,0.834-1.855,1.856s0.833,1.853,1.855,1.853s1.854-0.83,1.854-1.853S14.994,12.386,13.972,12.386z M13.972,15.116c-0.484,0-0.878-0.393-0.878-0.874c0-0.484,0.394-0.878,0.878-0.878c0.482,0,0.875,0.394,0.875,0.878C14.847,14.724,14.454,15.116,13.972,15.116z">
+                      </path>
+                    </svg>
+                    </button>
+                  </div>
+
+              </div>
+            
+    </div>
+      {{/each}}
+  </div>
+{{else}}
+  <p class="">The product gallery is empty.</p>
+{{/if}}
+
+<!-- PAG PREV AND NEXT -->
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+  {{#if list.hasPrevPage}}
+      <li class='page-item'>
+    {{else}}
+      <li class='page-item disabled'>
+  {{/if}}
+      <a class="page-link" href={{list.prevLink}}>Prev Page</a>
+    </li>
+  {{#if list.hasNextPage}}
+      <li class='page-item'>
+    {{else}}
+      <li class='page-item disabled'>
+  {{/if}}
+      <a class="page-link" href={{list.nextLink}}>Next Page</a>
+    </li>
+  </ul>
+</nav>
+
+<footer>
+    {{#if chat}}
+    <div id="chat">
+      <div>
+        <div class="btn"> <a href="/chat" class="btn"><i class="fa-solid fa-message"></i></a></div>
+        <p>Chat</p>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</footer>
+
+<script src="/public/js/product.js"></script>
+<script src="/public/js/logout.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.1/tippy.all.min.js" integrity="sha512-NsiYiJ86BHeVbSzIzt35rQOwBdX9VC5qOUC2peSbnzad0Ae9mX4zt+wx9rH0uJrLrjtltOlLCCZPemf6O6pl0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
