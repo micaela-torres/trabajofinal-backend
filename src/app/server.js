@@ -62,16 +62,7 @@ app.use(apiErrorHandler);
 const httpServer = app.listen(PORT, () => {
   winLogger.verbose(`App listening on port ${PORT}`);
   winLogger.verbose("Path to login view: http://localhost:8080/");
-  winLogger.verbose("Path to Regiter view: http://localhost:8080/register");
-  winLogger.verbose(
-    "Path to paginate product view:http://localhost:8080/products?limit=10&page=1"
-  );
-  winLogger.verbose("Path to cart view: http://localhost:8080/carts/:cid");
-  winLogger.verbose(
-    "Path to create products: http://localhost:8080/newproducts "
-  );
-  winLogger.verbose("Path to API-Products: http://localhost:8080/api/products");
-}); //incoorporé verbose para poder mostrar estos mensajes sin que le llegue pór consola al usuario
+}); 
 
 export const io = new socketIOServer(httpServer);
 
