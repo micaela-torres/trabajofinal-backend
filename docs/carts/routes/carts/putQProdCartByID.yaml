@@ -25,8 +25,8 @@ paths:
                   type: number
                   description: The quantity of the product in the cart.
             example:
-              product: "8b249da4-bf67-4073-b03b-2aaf42987b8a"
-              quantity: 5
+              product: "1c82b91f-ed37-4448-b2d9-a853ea75b174"
+              quantity: 1
       responses:
         "200":
           description: Products in the cart with given id
@@ -61,42 +61,14 @@ paths:
                         category:
                           type: string
                           enum:
-                            - AFA
-                            - CLUBS
-                            - +SELECCIONES
-                            - RETRO
-                            - OTROS
-                            - PERLITAS
+                            - Algabo
+                            - Iberia
+                            - Otros
                         owner:
                           type: string
                     quantity:
                       type: number
                 example:
                   - product:
-                      id: "8b249da4-bf67-4073-b03b-2aaf42987b8a"
-                      title: "Boca Jrs 23"
-                      description: "Titular-Original"
-                      price: 35000
-                      thumbnail:
-                        - "data:image.jpg"
-                      code: "CABJT23"
-                      stock: 12
-                      status: true
-                      category: "CLUBS"
-                      owner: "super-admin"
-                    quantity: 5
-                  - product:
-                      id: "efgh5678"
-                      title: "Example Product"
-                      description: "This is an example product."
-                      price: 9999
-                      thumbnail:
-                        - "https://example.com/product.jpg"
-                      code: "EXMPL1"
-                      stock: 50
-                      status: true
-                      category: "OTROS"
-                      owner: "admin"
-                    quantity: 1
         "404":
           description: cart not found Error

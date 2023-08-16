@@ -7,14 +7,6 @@ const httpClient = supertest("https://localhost:8080");
 
 describe("api rest", () => {
   describe("/api/carts", () => {
-    // beforeEach(async () => {
-    //   await cmg.deleteMany({});
-    // });
-
-    // afterEach(async () => {
-    //   await cmg.deleteMany({});
-    // });
-
     describe("POST", () => {
       describe("when sending a request to create a cart", () => {
         it("creates a cart and returns 200", async () => {
@@ -53,6 +45,15 @@ describe("api rest", () => {
       });
     });
   });
+  //afterEach(async () => {
+  //await mongoose.connection.collection('carts').deleteMany({})
+  //await mongoose.connection.collection('products').deleteMany({})
+  // })
+
+  //beforeEach(async () => {
+  //  await mongoose.connection.collection('carts').deleteMany({})
+  //  await mongoose.connection.collection('products').deleteMany({})
+  //})
 
   describe("PUT /api/carts/:cid", () => {
     describe("when sending a request to update a cart", () => {
@@ -72,15 +73,4 @@ describe("api rest", () => {
     });
   });
 
-  // describe('DELETE /api/carts/:cid', () => {
-  //   describe('when sending a request to delete a cart', () => {
-  //     it('deletes the cart and returns status code 200', async () => {
-  //       const cartId = Uid();
-  //       await cmg.add({ id: cartId });
-
-  //       const response = await httpClient.delete(`/api/carts/${cartId}`);
-  //       assert.strictEqual(response.statusCode, 200);
-  //     });
-  //   });
-  // });
 });

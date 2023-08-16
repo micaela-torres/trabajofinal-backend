@@ -11,5 +11,5 @@ CartProdQ:
             type: number
             description: The quantity of the product in the cart.
         example:
-          product: "8b249da4-bf67-4073-b03b-2aaf42987b8a"
+          product: "1c82b91f-ed37-4448-b2d9-a853ea75b174"
           quantity: 3

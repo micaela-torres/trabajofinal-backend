@@ -39,8 +39,8 @@ describe("dao mongoose (genérico)", () => {
   });
 
   describe("create", () => {
-    describe("cuando llamo al create con un objeto con el esquema correspondiente", () => {
-      it("devuelve el mismo objeto sin agregarle ningun campo ni métodos", async () => {
+    describe("create con un objeto con el esquema", () => {
+      it("devuelve el mismo objeto", async () => {
         const dao = new DaoMongoose(testModel);
         const pojo = await dao.add(testData);
         assert.ok(!pojo._id, "no debería tener _id");

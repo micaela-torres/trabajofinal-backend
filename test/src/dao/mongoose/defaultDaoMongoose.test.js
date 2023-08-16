@@ -11,11 +11,11 @@ const modelDb = mongoose.model("datosDePruebas", testSchema);
 
 describe("DaoMongoose", () => {
   describe("add", () => {
-    it("agrega un elemento correctamente", async () => {
+    it("agrega un elemento", async () => {
       const dao = new DaoMongoose(modelDb);
       const element = {
-        property1: "valor1",
-        property2: 123,
+        property1: "hola1",
+        property2: 1234,
       };
 
       modelDb.create = async (element) => element;
@@ -25,14 +25,14 @@ describe("DaoMongoose", () => {
   });
 
   describe("findOne", () => {
-    it.skip("encuentra un elemento correctamente", async () => {
+    it.skip("encuentra un elemento", async () => {
       // TODO
       const dao = new DaoMongoose(modelDb);
-      const condition = { id: "123" };
+      const condition = { id: "1234" };
       const expectedResult = {
-        id: "123",
-        property1: "valor1",
-        property2: 123,
+        id: "1234",
+        property1: "hola1",
+        property2: 1234,
       };
 
       // @ts-ignore
@@ -44,7 +44,7 @@ describe("DaoMongoose", () => {
 
     it("lanza un error si no se encuentra el elemento", async () => {
       const dao = new DaoMongoose(modelDb);
-      const condition = { id: "123" };
+      const condition = { id: "1234" };
 
       // @ts-ignore
       modelDb.findOne = async () => null;
@@ -56,10 +56,10 @@ describe("DaoMongoose", () => {
     it.skip("encuentra múltiples elementos correctamente", async () => {
       // TODO revisar .select en Dao mongoose
       const dao = new DaoMongoose(modelDb);
-      const condition = { property1: "valor1" };
+      const condition = { property1: "hola1" };
       const expectedResult = [
-        { id: "1", property1: "valor1", property2: 123 },
-        { id: "2", property1: "valor1", property2: 456 },
+        { id: "1", property1: "hola1", property2: 123 },
+        { id: "2", property1: "hola1", property2: 456 },
       ];
 
       // @ts-ignore

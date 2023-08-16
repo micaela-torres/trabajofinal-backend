@@ -10,7 +10,7 @@ class EmailService {
 
   async send(destinatario, mailOpt) {
     const mailOptions = {
-      from: "Astros Indumentaria Deportiva",
+      from: "Pedido de Symart",
       to: destinatario,
       subject: mailOpt.subject,
       text: mailOpt.mensaje,

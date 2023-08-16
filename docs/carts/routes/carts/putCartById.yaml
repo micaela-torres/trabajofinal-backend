@@ -30,30 +30,17 @@ paths:
                 $ref: "#/components/schemas/Cart"
               example:
                 - product:
-                    id: "8b249da4-bf67-4073-b03b-2aaf42987b8a"
-                    title: "Boca Jrs 23"
-                    description: "Titular-Original"
-                    price: 35000
+                    id: "a5243a4e-a352-41f6-94b0-5827ae6db59a"
+                    title: "BABY JABON"
+                    description: "CON ESTUCHE X80 "
+                    price: 215
                     thumbnail:
-                      - "data:image.jpg"
-                    code: "CABJT23"
-                    stock: 12
+                      - "https://www.anikashop.com.ar/product_images/p/949/Imagenes%2520Algabo-43_L__91400_std.png"
+                    code: "1307"
+                    stock: 44
                     status: true
-                    category: "CLUBS"
+                    category: "Algabo"
                     owner: "super-admin"
                   quantity: 3
-                - product:
-                    id: "efgh5678"
-                    title: "Example Product"
-                    description: "This is an example product."
-                    price: 9999
-                    thumbnail:
-                      - "https://example.com/product.jpg"
-                    code: "EXMPL1"
-                    stock: 50
-                    status: true
-                    category: "OTROS"
-                    owner: "admin"
-                  quantity: 1
         "404":
           description: cart not found Error

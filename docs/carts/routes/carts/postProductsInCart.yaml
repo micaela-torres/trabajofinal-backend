@@ -23,14 +23,14 @@ paths:
               schema:
                 $ref: "#/components/schemas/Cart"
               example:
-                id: "801de265-9dfe-4db7-bc84-0cc89a11f070"
-                title: "Argentina Qatar Titular"
-                description: "mundial 2022"
-                price: 15000
+                id: "a5243a4e-a352-41f6-94b0-5827ae6db59a"
+                title: "BABY JABON"
+                description: "CON ESTUCHE X80 "
+                price: 215
                 thumbnail:
-                  - "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/611f58bb7b4444bbb62eaeca012c57dd_9366/camiseta-titular-argentina-22.jpg"
-                code: "ARG22"
-                stock: 100
+                  - "https://www.anikashop.com.ar/product_images/p/949/Imagenes%2520Algabo-43_L__91400_std.png"
+                code: "1307"
+                stock: 44
                 status: true
-                category: "AFA"
+                category: "Algabo"
                 owner: "super-admin"

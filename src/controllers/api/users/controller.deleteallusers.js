@@ -18,12 +18,10 @@ export async function deleteAllUserController(req, res, next) {
       if (diference && u.role !== "super-admin") {
         await userRepository.deleteOne(u.id);
         const mailData = {
-          subject: "Cuenta eliminada --Astros",
-          mensaje: `Hola,\n\n
-          Gracias por acompañarnos este tiempo. Astros le comunica que por inactividad su cuenta ha sido eliminada, esperamos con brazos bien abiertos su regreso a la familia Astromanníaca.\n\n
-          
-          Abrazo de gol, hasta la vuelta\n
-          Astros ⭐`,
+          subject: "Cuenta eliminada",
+          mensaje: `\n\n
+          Por inactividad su cuenta ha sido eliminada.\n\n
+          Hasta la vuelta\n`,
         };
         await emailService.send(u.email, mailData);
       }
